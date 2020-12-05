@@ -1,3 +1,9 @@
+/*
+GitHub Link: https://github.com/KabdulDev/minesweeper-java
+Youtube Link: https://youtu.be/b9769jqVFUM
+
+*/
+
 
 
 import java.util.Random;
@@ -19,7 +25,7 @@ public class Grid {
     public Grid(){
         numRows = 10;
         numColumns = 10;
-        numBombs = 5;
+        numBombs = 25;
         gridCount = numColumns*numRows;
         createBombGrid();
         createCountGrid();
@@ -60,12 +66,22 @@ public class Grid {
     }
 
     public boolean[][] getBombGrid() {
-        boolean [][] tempBombGrid = bombGrid;
+        boolean [][] tempBombGrid = new boolean [getNumRows()][getNumColumns()];
+        for(int row = 0; row<numRows; row ++ ){
+            for(int column = 0; column < numColumns; column++){
+                tempBombGrid[row][column] = bombGrid[row][column];
+            }
+        }
         return tempBombGrid;
     }
 
     public int[][] getCountGrid() {
-        int [][] tempCountGrid = countGrid;
+        int [][] tempCountGrid = new int [getNumRows()][getNumColumns()];
+        for(int row = 0; row<numRows; row ++ ){
+            for(int column = 0; column < numColumns; column++){
+                tempCountGrid[row][column] = countGrid[row][column];
+            }
+        }
         return tempCountGrid;
     }
 
